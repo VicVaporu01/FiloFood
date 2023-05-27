@@ -1,0 +1,51 @@
+<div>
+    <div *ngIf="logged" class="container d-flex justify-content-center">
+        <iframe #iframeRef src="../../../assets/detector/index.html" frameborder="0"
+            style="height: 600px; width: 600px;"></iframe>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <span class="tittle">USER SCHEDULE</span>
+                            <table class="table table-striped mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Pet's Name</th>
+                                        <th scope="col">Feeding Schedule</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ pet?.name }}</td>
+                                        <td>
+                                            <table class="table table-striped mt-3">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Day</th>
+                                                        <th>Start Time</th>
+                                                        <th>End Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr
+                                                        *ngFor="let day of ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']">
+                                                        <td>{{ day }}</td>
+                                                        <td>{{ pet?.feedingSchedule[day][0]?.startTime }}</td>
+                                                        <td>{{ pet?.feedingSchedule[day][0]?.endTime }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1 id="title-advise" *ngIf="!logged">First you must log in!</h1>
+</div>

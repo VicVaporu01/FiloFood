@@ -1,0 +1,19 @@
+canvas {
+  border: 1px solid black;
+}
+
+#videoAction,
+#detectionAction {
+  width: 250px;
+  height: 50px;
+  background: blueviolet;
+  color: aliceblue;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#title-advise {
+  color: rgb(16, 179, 170);
+  text-align: center;
+  font-style: italic;
+}

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="">FiloFood</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/detection" routerLinkActive="active">Detection</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <ng-container *ngIf="!authenticationService.loggedIn(); else loggedIn">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/create-user" routerLinkActive="active">Register</a>
+                    </li>
+                </ng-container>
+                <ng-template #loggedIn>
+                    <li class="nav-item">
+                        <a class="nav-link" style="cursor: pointer;" (click)="authenticationService.logout()">
+                            Logout
+                        </a>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="display: flex; justify-content: center;">
+    <img src="assets/img/logo.png" width="100%" height="250">
+
+</div>
+<div style="text-align: center; margin: 0 auto; max-width: 800px;">
+    <h1 style="color: aliceblue;">PetFood</h1>
+    <br>
+    <br>
+    <h5 style="color: antiquewhite;">We are proud to introduce a revolutionary system of autonomous feeding for pets. We
+        focus our work on satisfying the nutritional needs of your adorable four-legged companions innovatively and
+        conveniently. We have combined technology cutting edge with a passion for pet wellness to create a one-of-a-kind
+        solution.</h5>
+    <p style="color: antiquewhite;">
+        ___________________________________________________________________________________________</p>
+</div>
+<router-outlet></router-outlet>
