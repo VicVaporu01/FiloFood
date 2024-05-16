@@ -47,7 +47,11 @@ userCtrl.getUser = async (req, res) => {
 
 userCtrl.receiveDetectionData = async (req, res) => {
     const detectionData = req.body;
-    console.log("Datos de detección recibidos:", detectionData[0].label);
+    try {
+        console.log("Datos de detección recibidos:", detectionData[0].label);
+    } catch (error) {
+        console.log(error.message);
+    }
     const userId = req.userId;
     const user = await User.findById(userId);
 
